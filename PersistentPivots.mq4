@@ -9,10 +9,10 @@
 #property strict
 #property script_show_inputs
 #include "PersistentPivots.mqh"
-//#include <ZigZag.mqh>
+
 
 CPersistentPivots pivs[3];
-//CZigZag zigs[3];
+
 
 
 input double      ReversalPoints       = 10;
@@ -32,7 +32,7 @@ input double      LowPrice             = 0;
 int periods[];
 
 color colors[3] = {clrRed, clrYellow, clrDeepSkyBlue};
-//int   zigD[3]     = {50,50,80};
+
 
 
 //+------------------------------------------------------------------+
@@ -42,8 +42,7 @@ void OnStart(){
 //---
 
    dTF();
-   initPivs();
-   //initZZ();   
+   initPivs();   
    drawStuff();
   
 }
@@ -62,22 +61,10 @@ void initPivs(){
       pivs[i].calcPivots();
    }
 }
-/*
-void initZZ(){
-   for(int i=0; i< ArraySize(periods);i++){
-      zigs[i].setColor(colors[i]);
-      zigs[i].setPeriod(periods[i]);
-      zigs[i].setDepth(zigD[i]);
-      zigs[i].calcZigZag();
-      
-      
-   }
-}
-*/
+
 void drawStuff(){
    for(int i=0; i< ArraySize(periods);i++){
       pivs[i].draw();
-      //zigs[i].draw();
    
    }
 }
